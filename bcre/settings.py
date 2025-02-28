@@ -40,8 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'debug_toolbar',
     'pages.apps.PagesConfig',
-    'listings.apps.ListingsConfig'
+    'listings.apps.ListingsConfig',
+    'realtors.apps.RealtorsConfig',
 ]
 
 # login 
@@ -53,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 # ROOT_URLCONF -> /bcre/urls.py
@@ -60,6 +63,7 @@ ROOT_URLCONF = 'bcre.urls'
 
 TEMPLATES = [
     {
+        # declare Templates
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
@@ -82,8 +86,13 @@ WSGI_APPLICATION = 'bcre.wsgi.application'
 # We can add multiple databases. For example, MySQL + MongoDB + PostgreSQL
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        #'ENGINE': 'django.db.backends.sqlite3',
+        #'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'bcredb',
+        'USER': 'postgres',
+        'PASSWORD': '987',
+        'HOST': 'localhost'
     }
 }
 
@@ -112,7 +121,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Hong_Kong'
 
 USE_I18N = True
 
@@ -131,3 +140,11 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR,'bcre/static')]
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
+# media <- store photos
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
