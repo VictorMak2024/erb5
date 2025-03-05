@@ -3,6 +3,8 @@ from datetime import datetime
 from realtors.models import Realtor
 
 # Create your models here.
+# photo-> /MEDIA/photos/year/month/day/photo_name
+
 class Listing(models.Model):
     realtor = models.ForeignKey(Realtor, on_delete=models.DO_NOTHING)
     title = models.CharField(max_length=200)
@@ -17,6 +19,7 @@ class Listing(models.Model):
     sqft = models.IntegerField()
     estate_size = models.FloatField(default=0.0)
     is_published = models.BooleanField(default=True)
+    list_date = models.DateTimeField(default=datetime.now, blank=True)
     photo_main = models.ImageField(upload_to='photos/%Y/%m/%d/')
     #blank=True <- data theme can be empty
     photo_1 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)

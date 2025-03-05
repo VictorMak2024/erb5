@@ -1,0 +1,15 @@
+In 127.0.0.1:8000/admin/login
+-> python manage.py createsuperuser (linux command)
+-> username : admin2 (super user)
+-> pw : admin2
+
+-> username : ryan3 (normal user)
+-> pw : Ryan3notgood2025
+
+Preferences
+-> Paths
+-> binary paths
+-> PostgreSQL 13 original binary paths: /usr/bin
+
+pgadmin4 log files location
+-> /home/victor/snap/pgadmin4/15/.local/share/pgadmin4

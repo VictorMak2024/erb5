@@ -173,3 +173,6 @@ cython_debug/
 
 # End of https://www.toptal.com/developers/gitignore/api/django
 /.vscode
+
+#db_admin_login_settings
+db_admin_login_login.txt
