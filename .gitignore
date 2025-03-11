@@ -175,4 +175,4 @@ cython_debug/
 /.vscode
 
 #db_admin_login_settings
-db_admin_login_login.txt
+db_admin_login.txt
