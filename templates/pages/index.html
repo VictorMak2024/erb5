@@ -26,12 +26,12 @@
                 </div>
 
                 <div class="col-md-4 mb-3">
-                  <label class="sr-only">street</label>
+                  <label class="sr-only">Title</label>
                   <input
                     type="text"
-                    name="street"
+                    name="title"
                     class="form-control"
-                    placeholder="Street"
+                    placeholder="Title"
                   />
                 </div>
 
@@ -39,7 +39,7 @@
                   <label class="sr-only">District</label>
                   <!--select = select tool bar -->
                   <select name="district" class="form-control">
-                    <option selected="true" disabled="disabled">
+                    <option selected="true" value="">
                       District (All)
                     </option>
                     {% for key, value in district_choices.items %}
@@ -53,8 +53,8 @@
                 <div class="col-md-6 mb-3">
                   <label class="sr-only">Bedrooms</label>
                   <select name="bedrooms" class="form-control">
-                    <option selected="true" disabled="disabled">
-                      Bedrooms (All)
+                    <option selected="true" value="">
+                      Bedrooms (Any)
                     </option>
                     {% for key, value in bedroom_choices.items %}
                     <option value="{{key}}">{{value}}</option>
@@ -63,7 +63,7 @@
                 </div>
                 <div class="col-md-6 mb-3">
                   <select name="price" class="form-control" id="type">
-                    <option selected="true" disabled="disabled">
+                    <option selected="true" value="">
                       Max Price (Any)
                     </option>
                     {% for key, value in price_choices.items %}

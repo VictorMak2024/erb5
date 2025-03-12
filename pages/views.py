@@ -13,7 +13,11 @@ from listings.choices import price_choices, bedroom_choices, district_choices
 
 def index(request):
     listings = Listing.objects.order_by('-list_date').filter(is_published=True)[:3]
-    context = {"listings" : listings, "price_choices" : price_choices, "bedroom_choices" : bedroom_choices, "district_choices" : district_choices}
+    context = {"listings" : listings,
+               "price_choices" : price_choices,
+               "bedroom_choices" : bedroom_choices,
+               "district_choices" : district_choices
+}
     return render(request, 'pages/index.html', context)
 
 def about(request):

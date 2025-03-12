@@ -40,7 +40,7 @@ district_choices = {
     "Yau Tsim Mong" : "Yau Tsim Mong",
     "Central & Western" : "Central & Western",
     "Eastern" : "Eastern",
-    "Soutern" : "Soutern",
+    "Southern" : "Southern",
     "Wan Chai" : "Wan Chai",
     "North" : "North"
 }
