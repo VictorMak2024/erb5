@@ -57,7 +57,7 @@
             <div class="card-body">
               <div class="listing-heading text-center">
                 {% comment %} fix prince street {% endcomment %}
-                <h4 class="text-primary">{{listing.title}}</h4>
+                <h4 class="text-primary">{{listing.title | title}}</h4>
                 <p>
                   {% comment %} fix {% endcomment %}
                   <i class="fas fa-map-marker text-secondary"></i> {{listing.district}}
