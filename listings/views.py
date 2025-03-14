@@ -11,6 +11,7 @@ from listings.choices import price_choices, bedroom_choices, district_choices
 # def listings_2(request):
 #     Listings = Listing.objects.filter(Q(district='tst')|Q(district='mk'))
 
+#listings function to show all listing details and pagination
 def listings(request):
     # .objects.all() -> take all data from databases
     """
@@ -36,11 +37,13 @@ def listings(request):
     return render(request, 'listings/listings.html', context)
 
 #listings/urls.py <- urlpatterns
+# listing function to show listing.id details
 def listing(request, listing_id):
     listing = get_object_or_404(Listing, pk=listing_id)
     context = {'listing': listing}
     return render(request, 'listings/listing.html', context)
 
+# search function to search subgroup
 def search(request):
     queryset_list = Listing.objects.order_by('-list_date').filter(is_published=True)
     if 'keywords' in request.GET:

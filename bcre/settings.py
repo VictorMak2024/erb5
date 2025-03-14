@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 import os
 from pathlib import Path
+from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # For example, ../bcre/settings.py; __file__ <- settings.py; 
@@ -22,6 +23,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# When we deploy to production, we need to uncomment or save this Secret Key in other file.
+# If we don't do this, we will be hacked by hackers.
 SECRET_KEY = 'django-insecure-1$s+5!0(yncpb-l=fsma6xw$537puyei78+6ft03x*w)qcoma9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -150,3 +153,8 @@ INTERNAL_IPS = [
 # media <- store photos
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+    messages.SUCCESS: 'success'
+}
