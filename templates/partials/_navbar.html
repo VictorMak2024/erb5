@@ -1,4 +1,5 @@
 {% load static %}
+{% load humanize %}
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
     <div class="container">
@@ -33,6 +34,21 @@
         </ul>
 
         <ul class="navbar-nav ml-auto">
+          {% if user.is_authenticated %}
+          <li {% if 'dashboard' in request.path %} class="nav-item active mr-3 " {% else %} class="nav-item mr-3" %}{% endif %}>
+            <a href="{% url 'dashboard' %}" class="nav-link" style="text-transform: capitalize;">Welcome {{user.username | title}}</a>
+          </li>
+          <!-- Logout -->
+          <li class="nav-item mr-3">
+            <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
+              <i class="fas fa-sign-out-alt">Logout</i></a>
+            <form action="{% url "logout" %}" method="POST" id="logout">
+              {% csrf_token %}
+            <input type="hidden"/>
+            </form>
+          </li>
+          <!-- End Logout -->
+          {% else %}
           <li {% if 'register' in request.path %} class="nav-item mr-3 active" {% else %} class="nav-item mr-3" {% endif %}>
             {% comment %} fix register.html later {% endcomment %}
             <a class="nav-link" href="{% url "register" %}">
@@ -47,6 +63,7 @@
               Login</a
             >
           </li>
+          {% endif %}
         </ul>
       </div>
     </div>
