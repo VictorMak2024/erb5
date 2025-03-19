@@ -159,3 +159,12 @@ MESSAGE_TAGS = {
     messages.ERROR: 'danger',
     messages.SUCCESS: 'success'
 }
+
+# Email Config
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+# your email address
+EMAIL_HOST_USER = ''
+# youremail password
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = True

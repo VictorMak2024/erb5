@@ -36,7 +36,7 @@
         <ul class="navbar-nav ml-auto">
           {% if user.is_authenticated %}
           <li {% if 'dashboard' in request.path %} class="nav-item active mr-3 " {% else %} class="nav-item mr-3" %}{% endif %}>
-            <a href="{% url 'dashboard' %}" class="nav-link" style="text-transform: capitalize;">Welcome {{user.username | title}}</a>
+            <a href="{% url 'dashboard' %}" class="nav-link" style="text-transform: capitalize;">Welcome {{user.username | title}} (Dashboard)</a>
           </li>
           <!-- Logout -->
           <li class="nav-item mr-3">
